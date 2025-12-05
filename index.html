@@ -2,7 +2,7 @@
 <html lang="uk">
 <head>
   <meta charset="utf-8">
-  <title>Сліди кота → Кіт з’являється</title>
+  <title>Сліди кота → Кіт з'являється</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
@@ -19,6 +19,10 @@
       border-radius:50px;font-size:1.2em;z-index:100;display:none;cursor:pointer;
       font-family:sans-serif;box-shadow:0 8px 20px rgba(0,0,0,0.6);
     }
+    @media (max-width: 480px) {
+      #info { font-size: 1em; padding: 10px 20px; }
+      #sound-btn { padding: 12px 24px; font-size: 1em; }
+    }
   </style>
 </head>
 <body>
@@ -32,7 +36,8 @@
     vr-mode-ui="enabled: false"
     device-orientation-permission-ui="enabled: false"
     embedded
-    background="color: #00000000">
+    renderer="useLegacyLights: false; colorManagement: true; physicallyCorrectLights: true;"
+    background="transparent: true">
 
     <a-assets timeout="60000">
       <img id="paw-img" src="paw.png">
@@ -127,8 +132,7 @@
       }, paws.length * delay + 700);
     });
 
-    // При втраті маркера — усе залишається у світі (світ зафіксовано)
- 1 раз)
+    // При втраті маркера — усе залишається у світі
   </script>
 </body>
 </html>
